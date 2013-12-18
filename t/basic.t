@@ -1,8 +1,19 @@
 use strict;
+use warnings;
 use Test::More;
-use Catmandu::EuropePMC;
 
-# replace with the actual test
-ok 1;
+my $pkg;
+BEGIN {
+    $pkg = 'Catmandu::Importer::EuropePMC';
+    use_ok $pkg;
+}
 
-done_testing;
+require_ok $pkg;
+
+my $importer = Catmandu::Importer::EuropePMC->new(query => '10779411');
+
+isa_ok($importer, $pkg);
+
+can_ok($importer, 'each');
+
+done_testing 4;
