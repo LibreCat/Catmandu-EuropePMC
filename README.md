@@ -2,10 +2,6 @@
 
 Catmandu::EuropePMC - A bundle of Catmandu modules for working with data from EuropePMC
 
-# SYNOPSIS
-
-    use Catmandu::EuropePMC;
-
 # DESCRIPTION
 
 Catmandu::EuropePMC is
@@ -13,6 +9,12 @@ Catmandu::EuropePMC is
 # AUTHOR
 
 Vitali Peil <vitali.peil@uni-bielefeld.de>
+
+# MODULES
+
+- [Catmandu::Importer::EuropePMC](https://metacpan.org/pod/Catmandu::Importer::EuropePMC)
+- [Catmandu::Fix::epmc_filter](https://metacpan.org/pod/Catmandu::Fix::epmc_filter)
+- [Catmandu::Fix::epmc_dbLinks](https://metacpan.org/pod/Catmandu::Fix::epmc_dbLinks)
 
 # COPYRIGHT
 
@@ -24,4 +26,3 @@ This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
 # SEE ALSO
-
