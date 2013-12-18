@@ -1,6 +1,6 @@
 # NAME
 
-Catmandu::EuropePMC - Blah blah blah
+Catmandu::EuropePMC - A bundle of Catmandu modules for working with data from EuropePMC
 
 # SYNOPSIS
 
@@ -24,3 +24,4 @@ This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
 # SEE ALSO
+

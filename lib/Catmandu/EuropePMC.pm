@@ -10,11 +10,7 @@ __END__
 
 =head1 NAME
 
-Catmandu::EuropePMC - Blah blah blah
-
-=head1 SYNOPSIS
-
-  use Catmandu::EuropePMC;
+Catmandu::EuropePMC - A bundle of Catmandu modules for working with data from EuropePMC
 
 =head1 DESCRIPTION
 
@@ -23,6 +19,18 @@ Catmandu::EuropePMC is
 =head1 AUTHOR
 
 Vitali Peil E<lt>vitali.peil@uni-bielefeld.deE<gt>
+
+=head1 MODULES
+
+=over
+
+=item * L<Catmandu::Importer::EuropePMC>
+
+=item * L<Catmandu::Fix::epmc_filter>
+
+=item * L<Catmandu::Fix::epmc_dbLinks>
+
+=back
 
 =head1 COPYRIGHT
 
