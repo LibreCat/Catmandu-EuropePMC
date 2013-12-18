@@ -36,7 +36,10 @@
       },
       "runtime" : {
          "requires" : {
-            "perl" : "5.008005"
+            "Catmandu" : "0.8002",
+            "LWP::UserAgent" : "6.0",
+            "XML::Simple" : "2.2",
+            "perl" : "v5.10.1"
          }
       },
       "test" : {
@@ -46,6 +49,9 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.01"
+   "version" : "0.01",
+   "x_contributors" : [
+      "vpeil <vitali.peil@uni-bielefeld.de>"
+   ]
 }
 
