@@ -2,13 +2,9 @@
 
 Catmandu::EuropePMC - A bundle of Catmandu modules for working with data from EuropePMC
 
-# DESCRIPTION
-
-Catmandu::EuropePMC is
-
 # AUTHOR
 
-Vitali Peil <vitali.peil@uni-bielefeld.de>
+Vitali Peil <vitali.peil at uni-bielefeld.de>
 
 # MODULES
 
@@ -26,3 +22,5 @@ This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
 # SEE ALSO
+
+[Catmandu::PubMed](https://metacpan.org/pod/Catmandu::PubMed)
