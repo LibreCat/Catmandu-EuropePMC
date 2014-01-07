@@ -29,8 +29,9 @@ sub _request {
   my $ua = LWP::UserAgent->new;
   $ua->timeout(20);
 
+  my $res;
   try {
-    my $res = $ua->get($url);
+    $res = $ua->get($url);
     die $res->status_line unless $res->is_success;
 
     return $res->decoded_content;
