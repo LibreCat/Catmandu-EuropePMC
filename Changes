@@ -2,6 +2,9 @@ Revision history for Catmandu-EuropePMC
 
 {{$NEXT}}
 
+v0.10  2014-01-13 07:44:19 CET
+	- typo
+
 v0.08  2014-01-07 15:56:49 CET
 	- better error handling, Try::Tiny
 
