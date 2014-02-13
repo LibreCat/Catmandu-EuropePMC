@@ -32,4 +32,14 @@ my $db = $db_importer->first;
 
 is(exists $db->{dbCrossReferenceList}->{dbCrossReference}, '1', "Database links ok");
 
-done_testing 7;
+my $db_importer2 = $pkg->new(
+	query => '23280342', 
+	module => 'databaseLinks',
+	db => 'uniprot',
+	page => '1',
+	);
+
+my $db2 = $db_importer2->first;
+is(exists $db2->{dbCrossReferenceList}->{dbCrossReference}, '1', "More Database links ok");
+
+done_testing 8;
