@@ -2,7 +2,7 @@ package Catmandu::Importer::EuropePMC;
 
 use Catmandu::Sane;
 use Moo;
-use LWP::UserAgent;
+use Furl;
 use XML::LibXML::Simple qw(XMLin);
 use Try::Tiny;
 
@@ -26,15 +26,14 @@ my %MAP = (references => 'reference',
 sub _request {
   my ($self, $url) = @_;
 
-  my $ua = LWP::UserAgent->new;
-  $ua->timeout(20);
+  my $ua = Furl->new(timeout => 20);
 
   my $res;
   try {
     $res = $ua->get($url);
     die $res->status_line unless $res->is_success;
 
-    return $res->decoded_content;
+    return $res->content;
   } catch {
     Catmandu::Error->throw("Status code: $res->status_line");
   };

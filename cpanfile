@@ -6,6 +6,6 @@ on test => sub {
 };
 
 requires 'Catmandu', '>=0.8014';
-requires 'LWP::UserAgent', '>= 6.0';
+requires 'Furl', '3.02';
 requires 'XML::LibXML::Simple', '0.93';
 requires 'Try::Tiny', '0.12';
