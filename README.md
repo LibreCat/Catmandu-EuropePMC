@@ -4,7 +4,7 @@ Catmandu::EuropePMC - A bundle of Catmandu modules for working with data from Eu
 
 # AUTHOR
 
-Vitali Peil <vitali.peil at uni-bielefeld.de>
+Vitali Peil `<vitali.peil at uni-bielefeld.de>`
 
 # MODULES
 
