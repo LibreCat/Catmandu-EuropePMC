@@ -1,10 +1,10 @@
 package Catmandu::Importer::EuropePMC;
 
 use Catmandu::Sane;
-use Moo;
-use Furl;
 use XML::LibXML::Simple qw(XMLin);
 use Try::Tiny;
+use Furl;
+use Moo;
 
 with 'Catmandu::Importer';
 
@@ -22,7 +22,6 @@ my %MAP = (references => 'reference',
   citations => 'citation',
   dbCrossReferenceInfo => 'dbCrossReference');
 
-# Returns the raw response object.
 sub _request {
   my ($self, $url) = @_;
 
@@ -40,25 +39,19 @@ sub _request {
 
 }
 
-# Returns a hash representation of the given XML.
 sub _hashify {
   my ($self, $in) = @_;
 
   my $xs = XML::LibXML::Simple->new();
   my $field = $MAP{$self->module};
-  my $out = $xs->XMLin($in,
-#    ForceArray => [$field, 'dbName'],
-#    KeyAttr => [$field, 'dbName'],
-  );
+  my $out = $xs->XMLin($in);
 
   return $out;
 }
 
-# Returns the XML response body.
 sub _call {
   my ($self) = @_;
 
-  # construct the url
   my $url = $self->base;
   if ($self->module eq 'search') {
     $url .= '/search/query=' . $self->query;
@@ -68,25 +61,19 @@ sub _call {
     $url .= '/'. $self->page if $self->page;
   }
 
-  # http get the url.
   my $res = $self->_request($url);
 
-  # return the response body.
   return $res;
 }
 
 sub _get_record {
   my ($self) = @_;
   
-  # fetch the xml response and hashify it.
   my $xml = $self->_call;
   my $hash = $self->_hashify($xml);
     
-  # return a reference to a hash.
   return $hash;
 }
-
-# Public Methods. --------------------------------------------------------------
 
 sub generator {
 
