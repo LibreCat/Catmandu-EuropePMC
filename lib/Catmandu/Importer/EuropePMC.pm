@@ -3,7 +3,7 @@ package Catmandu::Importer::EuropePMC;
 use Catmandu::Sane;
 use Moo;
 use LWP::UserAgent;
-use XML::Simple qw(XMLin);
+use XML::LibXML::Simple qw(XMLin);
 use Try::Tiny;
 
 with 'Catmandu::Importer';
@@ -45,12 +45,11 @@ sub _request {
 sub _hashify {
   my ($self, $in) = @_;
 
-  my $xs = XML::Simple->new();
+  my $xs = XML::LibXML::Simple->new();
   my $field = $MAP{$self->module};
-  my $out = $xs->XMLin($in, 
-    SuppressEmpty => '', 
-    ForceArray => [$field, 'dbName'],
-    KeyAttr => [$field, 'dbName'],
+  my $out = $xs->XMLin($in,
+#    ForceArray => [$field, 'dbName'],
+#    KeyAttr => [$field, 'dbName'],
   );
 
   return $out;
