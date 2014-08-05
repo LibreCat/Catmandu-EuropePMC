@@ -17,7 +17,13 @@ dies_ok {$pkg->new(module => 'search')} "required argument missing";
 
 dies_ok { $pkg->new(module => "databaseLinks", page => 1) } "required argument missing";
 
-lives_ok { $pkg->new(query => "10779411") } "required argument ok";
+dies_ok {$pkg->new(pmid => "10779411", fmt => "marc")} "format support";
+
+lives_ok {$pkg->new(pmid => "10779411", fmt => "json")} "format support";
+
+lives_ok { $pkg->new(query => "malaria") } "required argument ok";
+
+lives_ok { $pkg->new(pmid => "10779411") } "required argument ok";
 
 my $importer = $pkg->new(query => '10779411');
 
