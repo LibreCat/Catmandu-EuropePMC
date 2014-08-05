@@ -12,17 +12,26 @@ use constant BASE_URL => 'http://www.ebi.ac.uk/europepmc/webservices/rest';
 
 has base   => ( is => 'ro', default => sub { return BASE_URL; } );
 has source => ( is => 'ro', default => sub { return "MED"; } );
-has query => ( is => 'ro', required => 1 );
 has module => ( is => 'ro', default => sub { return "search"; } );
-has db   => ( is => 'ro' );
-has page => ( is => 'ro' );
-has fmt  => ( is => 'ro' );
+has query  => ( is => 'ro' );
+has pmid   => ( is => 'ro' );
+has db     => ( is => 'ro' );
+has page   => ( is => 'ro' );
+
+sub BUILD {
+    my $self = shift;
+
+    Catmandu::BadVal->throw("Either 'pmid' or 'query' is required.")
+        unless $self->pmid || $self->query;
+
+}
 
 my %PATH_MAPPING = (
-    search => 'result',
-    citations => 'citation',
-    references => 'reference',
-    databaseLinks => 'dbCrossReference');
+    search        => 'result',
+    citations     => 'citation',
+    references    => 'reference',
+    databaseLinks => 'dbCrossReference'
+);
 
 sub _request {
     my ( $self, $url ) = @_;
@@ -45,8 +54,8 @@ sub _request {
 sub _parse {
     my ( $self, $in ) = @_;
 
-    my $path = $PATH_MAPPING{$self->module};
-    my $xml    = Catmandu::Importer::XML->new(file => \$in, path => $path);
+    my $path = $PATH_MAPPING{ $self->module };
+    my $xml = Catmandu::Importer::XML->new( file => \$in, path => $path );
 
     return $xml->to_array;
 }
@@ -59,9 +68,8 @@ sub _call {
         $url .= '/search/query=' . $self->query;
     }
     else {
-        $url
-            .= '/' . $self->source . '/' . $self->query . '/' . $self->module;
-        $url .= '/' . $self->db   if $self->db;
+        $url .= '/' . $self->source . '/' . $self->pmid . '/' . $self->module;
+        $url .= '/' . $self->db if $self->db;
         $url .= '/' . $self->page if $self->page;
     }
 
@@ -73,7 +81,7 @@ sub _call {
 sub _get_record {
     my ($self) = @_;
 
-    return $self->_parse($self->_call);
+    return $self->_parse( $self->_call );
 }
 
 sub generator {
@@ -83,7 +91,8 @@ sub generator {
     return sub {
         state $stack = $self->_get_record;
         my $rec = pop $stack;
-        $rec->{$PATH_MAPPING{$self->module}} ? (return $rec->{$PATH_MAPPING{$self->module}})
+        $rec->{ $PATH_MAPPING{ $self->module } }
+            ? ( return $rec->{ $PATH_MAPPING{ $self->module } } )
             : return undef;
     };
 
@@ -124,20 +133,21 @@ sub generator {
 
 =item * source: default is 'MED'
 
-=item * query: required
+=item * query: either pmid or query is required.
+
+=item * pmid: either pmid or query is required.
 
 =item * module: default is 'search', other possible values are 'databaseLinks', 'citations', 'references'
 
-=item * db: the name of the database. Use when module is 'databaseLinks'
+=item * db: the name of the database. Use when module is 'databaseLinks'.
 
 =item * page: the paging parameter
-
-=item * fmt: default is 'xml', the other choice is 'json'
 
 =back
 
 =head1 SEE ALSO
 
-L<Catmandu::Iterable>, L<Catmandu::Importer::PubMed>
+L<Catmandu::Iterable>, L<Catmandu::Fix>,
+L<Catmandu::Importer::PubMed>
 
 =cut

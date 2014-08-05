@@ -26,6 +26,15 @@ my $db_imp = $pkg->new(
 
 is($db_imp->first->{dbName}, "UNIPROT", "Database links ok");
 
+my $dp_imp_page = $pkg->new(
+    pmid => '10779411',
+    module => 'databaseLinks',
+    db => 'uniprot',
+    page => '3',
+    );
+
+ok (!defined $dp_imp_page->first, "page does not exist");
+
 # citations
 my $citation = $pkg->new(
     pmid => '10779411',
