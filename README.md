@@ -2,9 +2,13 @@
 
 Catmandu::EuropePMC - A bundle of Catmandu modules for working with data from EuropePMC
 
-# AUTHOR
+# STATUS
 
-Vitali Peil `<vitali.peil at uni-bielefeld.de>`
+<p>
+<img src="https://travis-ci.org/LibreCat/Catmandu-EuropePMC.svg?branch=master" alt="build status" />
+<img src="https://coveralls.io/repos/LibreCat/Catmandu-EuropePMC/badge.png?branch=master" alt="coverage status" />
+<img src="http://cpants.cpanauthors.org/dist/Catmandu-EuropePMC.png" alt="kwalitee score" />
+</p>
 
 # MODULES
 
@@ -12,15 +16,12 @@ Vitali Peil `<vitali.peil at uni-bielefeld.de>`
 - [Catmandu::Fix::epmc_filter](https://metacpan.org/pod/Catmandu::Fix::epmc_filter)
 - [Catmandu::Fix::epmc_dbLinks](https://metacpan.org/pod/Catmandu::Fix::epmc_dbLinks)
 
-# COPYRIGHT
+# AUTHOR
 
-Copyright 2013- Vitali Peil
+Vitali Peil
 
-# LICENSE
+# COPYRIGHT AND LICENSE
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+This software is copyright (c) 2014 by Vitali Peil.
 
-# SEE ALSO
-
-[Catmandu::PubMed](https://metacpan.org/pod/Catmandu::PubMed)
+This is free software; you can redistribute it and/or modify it under the same terms as the Perl 5 programming language system itself.
