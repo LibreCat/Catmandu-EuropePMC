@@ -90,7 +90,7 @@ sub generator {
 
     return sub {
         state $stack = $self->_get_record;
-        my $rec = pop $stack;
+        my $rec = pop @$stack;
         $rec->{ $PATH_MAPPING{ $self->module } }
             ? ( return $rec->{ $PATH_MAPPING{ $self->module } } )
             : return undef;
