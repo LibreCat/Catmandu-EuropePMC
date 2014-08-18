@@ -19,6 +19,8 @@ dies_ok { $pkg->new(module => "databaseLinks", page => 1) } "required argument m
 
 lives_ok { $pkg->new(query => "malaria") } "required argument ok";
 
+lives_ok { $pkg->new(query => "malaria", raw => 1) } "raw xml ok";
+
 lives_ok { $pkg->new(pmid => "10779411") } "required argument ok";
 
 my $importer = $pkg->new(query => '10779411');

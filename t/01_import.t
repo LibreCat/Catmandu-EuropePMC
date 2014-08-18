@@ -16,6 +16,9 @@ my $rec = $pkg->new(query => '10779411')->first;
 like($rec->{title}, qr/^Structural basis/, "title ok");
 is($rec->{pmid}, '10779411', "pmid ok");
 
+my $raw_rec = $pkg->new(query => '10779411', raw => 1)->first;
+is ($raw_rec->{responseWrapper}->{hitCount}, 1, "hitCount ok");
+
 # databaseLinks
 my $db_imp = $pkg->new(
     pmid => '10779411',

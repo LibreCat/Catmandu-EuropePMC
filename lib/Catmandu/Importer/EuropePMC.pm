@@ -17,6 +17,7 @@ has query  => ( is => 'ro' );
 has pmid   => ( is => 'ro' );
 has db     => ( is => 'ro' );
 has page   => ( is => 'ro' );
+has raw => (is => 'ro');
 
 sub BUILD {
     my $self = shift;
@@ -54,7 +55,9 @@ sub _request {
 sub _parse {
     my ( $self, $in ) = @_;
 
-    my $path = $PATH_MAPPING{ $self->module };
+    my $path;
+    ($self->raw) ? ($path = '')
+        : ($path = $PATH_MAPPING{ $self->module });
     my $xml = Catmandu::Importer::XML->new( file => \$in, path => $path );
 
     return $xml->to_array;
@@ -91,9 +94,13 @@ sub generator {
     return sub {
         state $stack = $self->_get_record;
         my $rec = pop @$stack;
+        if ($self->raw) {
+            return $rec;
+        } else {
         $rec->{ $PATH_MAPPING{ $self->module } }
             ? ( return $rec->{ $PATH_MAPPING{ $self->module } } )
             : return undef;
+        }
     };
 
 }
@@ -142,6 +149,8 @@ sub generator {
 =item * db: the name of the database. Use when module is 'databaseLinks'.
 
 =item * page: the paging parameter
+
+=item * raw: optional. If true delivers the raw xml object.
 
 =back
 
