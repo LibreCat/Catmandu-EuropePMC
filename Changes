@@ -3,6 +3,7 @@ Revision history for Catmandu-EuropePMC
 {{$NEXT}}
     - uses Catmandu::Importer::XML
     - iteration over single items
+    - raw xml option
 
 0.14  2014-06-27 14:01:39 CEST
 	- renamed accessor format to fmt

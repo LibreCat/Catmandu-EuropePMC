@@ -7,6 +7,7 @@ use Catmandu::Fix qw/epmc_dblinks/;
 use YAML;
 
 my $pkg;
+
 BEGIN {
     $pkg = 'Catmandu::Fix::epmc_dblinks';
     use_ok $pkg;
@@ -15,22 +16,19 @@ BEGIN {
 require_ok $pkg;
 
 my $db_rec = Catmandu::Importer::EuropePMC->new(
-    pmid => '10779411',
+    pmid   => '10779411',
     module => 'databaseLinks',
-    db => 'uniprot',
-    page => '1',
-    )->first;
+    db     => 'uniprot',
+    page   => '1',
+)->first;
 
 my $count = $db_rec->{dbCount};
-is ($count, 18, "count after fix");
-#diag Dump $db_rec;
-my $fixer = Catmandu::Fix->new(fixes => ["epmc_dblinks('UNIPROT')"]);
+is( $count, 18, "count after fix" );
+my $fixer = Catmandu::Fix->new( fixes => ["epmc_dblinks('UNIPROT')"] );
 my $fixed = $fixer->fix($db_rec);
-diag Dump ref $fixed;
 
-is ($fixed->[0]->{info1}->{label}, "UniProt database number", "DB label");
-like ($fixed->[0]->{info1}->{content}, qr/\d+$/, "DB id");
-is ($fixed->[0]->{info4}->{content}, "PDB", "Source ok");
-
+is( $fixed->[0]->{info1}->{label}, "UniProt database number", "DB label" );
+like( $fixed->[0]->{info1}->{content}, qr/\d+$/, "DB id" );
+is( $fixed->[0]->{info4}->{content}, "PDB", "Source ok" );
 
 done_testing;

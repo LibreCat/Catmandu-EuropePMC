@@ -42,10 +42,10 @@
       "runtime" : {
          "requires" : {
             "Catmandu" : "0",
-            "Catmandu::Importer::XML" : "0",
-            "Furl" : "3.02",
-            "Moo" : "1.004",
-            "Try::Tiny" : "0.12",
+            "Catmandu::XML" : "0",
+            "Furl" : "0",
+            "Moo" : "0",
+            "Try::Tiny" : "0",
             "perl" : "v5.10.1"
          }
       },
