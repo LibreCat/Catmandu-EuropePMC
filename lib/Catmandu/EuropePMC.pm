@@ -17,9 +17,9 @@ Catmandu::EuropePMC - A bundle of Catmandu modules for working with data from Eu
 =begin HTML
 
 <p>
-<img src="https://travis-ci.org/LibreCat/Catmandu-EuropePMC.svg?branch=master" alt="build status" />
-<img src="https://coveralls.io/repos/LibreCat/Catmandu-EuropePMC/badge.png?branch=master" alt="coverage status" />
-<img src="http://cpants.cpanauthors.org/dist/Catmandu-EuropePMC.png" alt="kwalitee score" />
+<a href="https://travis-ci.org/LibreCat/Catmandu-EuropePMC"><img src="https://travis-ci.org/LibreCat/Catmandu-EuropePMC.svg?branch=master" alt="build status" /></a>
+<a href="https://coveralls.io/repos/LibreCat/Catmandu-EuropePMC"><img src="https://coveralls.io/repos/LibreCat/Catmandu-EuropePMC/badge.png?branch=master" alt="coverage status" /></a>
+<a href="http://cpants.cpanauthors.org/dist/Catmandu-EuropePMC"><img src="http://cpants.cpanauthors.org/dist/Catmandu-EuropePMC.png" alt="kwalitee score" /></a>
 </p>
 
 =end HTML
