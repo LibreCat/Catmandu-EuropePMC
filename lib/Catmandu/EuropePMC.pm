@@ -34,10 +34,6 @@ L<Catmandu::Importer::EuropePMC>
 
 =item *
 
-L<Catmandu::Fix::epmc_filter>
-
-=item *
-
 L<Catmandu::Fix::epmc_dbLinks>
 
 =back
