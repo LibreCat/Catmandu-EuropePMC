@@ -1,6 +1,8 @@
 Revision history for Catmandu-EuropePMC
 
 {{$NEXT}}
+
+0.15  2014-09-25 07:40:50 CEST
     - uses Catmandu::Importer::XML
     - iteration over single items
     - raw xml option
