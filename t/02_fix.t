@@ -4,7 +4,6 @@ use Test::More;
 use Test::Exception;
 use Catmandu::Importer::EuropePMC;
 use Catmandu::Fix qw/epmc_dblinks/;
-use YAML;
 
 my $pkg;
 
@@ -23,7 +22,7 @@ my $db_rec = Catmandu::Importer::EuropePMC->new(
 )->first;
 
 my $count = $db_rec->{dbCount};
-is( $count>1, 1, "count after fix" );
+ok( $count>1, "count after fix" );
 my $fixer = Catmandu::Fix->new( fixes => ["epmc_dblinks('UNIPROT')"] );
 my $fixed = $fixer->fix($db_rec);
 
