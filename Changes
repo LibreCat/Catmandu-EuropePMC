@@ -2,6 +2,9 @@ Revision history for Catmandu-EuropePMC
 
 {{$NEXT}}
 
+0.17  2015-08-31 09:01:20 CEST
+    - remove unused deps
+
 0.16  2015-08-31 08:25:05 CEST
     - test slightly modified
 
