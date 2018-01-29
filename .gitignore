@@ -6,3 +6,5 @@ MYMETA.*
 !META.json
 /.prove
 nytprof*
+local/*
+cpanfile.snapshot
