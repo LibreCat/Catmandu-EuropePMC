@@ -1,6 +1,6 @@
 package Catmandu::Importer::EuropePMC;
 
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 use Catmandu::Sane;
 use Catmandu::Importer::XML;
