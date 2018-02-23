@@ -12,3 +12,4 @@ script:
 after_success:
   - cpanm --quiet --notest --skip-satisfied Devel::Cover::Report::Coveralls
   - cover -report coveralls
+env: NETWORK_TEST=1
