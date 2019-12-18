@@ -1,6 +1,6 @@
 package Catmandu::Fix::epmc_dblinks;
 
-our $VERSION = '1.01';
+our $VERSION = '1.011';
 
 use Catmandu::Sane;
 use Moo;

@@ -2,16 +2,11 @@
 
 Catmandu::EuropePMC - A bundle of Catmandu modules for working with data from EuropePMC
 
-# STATUS
+# DESCRIPTION
 
-[![Build Status](https://travis-ci.org/LibreCat/Catmandu-EuropePMC.svg?branch=master)](https://travis-ci.org/LibreCat/Catmandu-EuropePMC)
-[![Test Coverage](https://coveralls.io/repos/LibreCat/Catmandu-EuropePMC/badge.png?branch=master)](https://coveralls.io/r/LibreCat/Catmandu-EuropePMC)
-[![CPANTS](http://cpants.cpanauthors.org/dist/Catmandu-EuropePMC.png)](http://cpants.cpanauthors.org/dist/Catmandu-EuropePMC)
+DEPRECATED!
 
-# MODULES
-
-- [Catmandu::Importer::EuropePMC](https://metacpan.org/pod/Catmandu::Importer::EuropePMC)
-- [Catmandu::Fix::epmc\_dbLinks](https://metacpan.org/pod/Catmandu::Fix::epmc_dbLinks)
+For alternatives see e.g. [Catmandu::Importer::getJSON](https://metacpan.org/pod/Catmandu::Importer::getJSON).
 
 # AUTHOR
 
