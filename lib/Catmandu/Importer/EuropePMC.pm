@@ -113,6 +113,10 @@ sub generator {
 
   Catmandu::Importer::EuropePMC - Package that imports EuropePMC data.
 
+=head1 DESCRIPTION
+
+    For alternatives see e.g. L<Catmandu::Importer::getJSON>.
+
 =head1 API Documentation
 
   This module uses the REST service as described at http://www.ebi.ac.uk/europepmc/.

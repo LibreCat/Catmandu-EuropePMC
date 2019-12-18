@@ -103,6 +103,10 @@ sub fix {
     Catmandu::Fix::epmc_dbLinks - converts the nested hash from EuropePMC in a nice form
     and provides the url to the database entry
 
+=head1 DESCRIPTION
+
+DEPRECATED.
+
 =head1 SYNOPSIS
 
     use Catmandu::Fix qw(epmc_dbLinks);
